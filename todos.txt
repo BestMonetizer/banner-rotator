@@ -7,6 +7,11 @@ content item randomly chosen and displayed at fixed, timed interval
 http://cssglobe.com/simple-way-to-random-display-or-rotate-content-using/
 content item randomly chosen and displayed on reload
 
+http://www.spyka.net/scripts/javascript/simple-banner-rotator
+download of files to create rotating banners on site. content can appear anywhere on page and won't appear in duplicate at any given time anywhere on the page.
+
+http://www.htmlbasix.com/banner.shtml
+automatically generates code for rotating banners. if multiple banners on same page there is a possibility they will appear in duplicate at any given reload.
 
 Questions:
 

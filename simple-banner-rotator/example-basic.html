@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>spyka Webmaster banner rotator - 1.4.0 demo and install guide</title>
+<script type="text/javascript" src="banners.js"></script>
+</head>
+<body>
+	<script type="text/javascript">
+		show_banners('top');
+	</script>
+
+	<p>This is a basic example of the script in action. This page includes the banners.min.js file in the header and has 3 calls to show_banners.</p>
+	<p>The show_banners() call above this has the adlocation "top" - which has 3 banners assigned to it</p>
+	<p>The adlocation below this has no no name and therefore shows all banners which haven't been assigned a specific location - there is only one banner.</p>
+
+	<script type="text/javascript">
+		show_banners();
+	</script>
+	<script type="text/javascript">
+		show_banners();
+	</script>	<script type="text/javascript">
+			show_banners();
+		</script>
+
+
+	<p>The third call to show_banners() below has the adlocation bottom - it has two banners assigned to it</p>
+	<script type="text/javascript">
+		show_banners('bottom');
+	</script>
+
+</div>
+</body>
+</html>
