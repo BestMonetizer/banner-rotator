@@ -34,9 +34,9 @@
 
 var settings = {
 
-	'force_size':			0,         		// 	if set to 1 all banners will be resized to the width and height in the next to settings
-	'img_width':			468,			//	width to resize all banners to, only takes effect if above is 1
-	'img_height':			60, 			// 	height to resize all banners to, only takes effect if above is 1
+	'force_size':			1,         		// 	if set to 1 all banners will be resized to the width and height in the next to settings; OTHERWISE ORIGINAL WAS SET TO 0
+	'img_width':			100,			//	width to resize all banners to, only takes effect if above is 1
+//	'img_height':			100, 			// 	height to resize all banners to, only takes effect if above is 1
 
 	'refresh_time':			5000,			//	the seconds between refreshs of the banners - use 0 to disable
 	'refresh_max':			100,				//	maximum number of refreshs on each page load
@@ -63,14 +63,15 @@ var settings = {
 // banner list syntax: new banner(website_name, website_url, banner_url, show_until_date, adlocation),  DATE FORMAT: dd/mm/yyyy
 // if you're not using adlocations just leave it empty like '' as in the last example here
 // to make sure a banner is always rotating, just set the date far into the future, i.e. year 3000
+// ADD A NEW BANNER FOR EACH CONTENT PIECE THAT SHOULD BE INCLUDED IN RANDOM ROTATION. DELETE FROM HERE AFTER NO LONGER USING A CONTENT PIECE
 
 var banners = [
-	new banner('AwesomeStyles',			'http://www.awesomestyles.com', 			'images/4.jpg', 	'30/04/2019',	'', 'caption1', 'moretext1'),
-	new banner('Just Free Templates',	'http://www.justfreetemplates.com', 		'images/5.jpg',		'10/04/2019',	'', 'caption2', 'moretext2'),
-	new banner('Flashden', 				'http://www.flashden.net/?ref=spykawg', 	'images/3.jpg',		'30/04/2019',	'', 'caption3', 'moretext3'),
-	new banner('ThemeForest', 			'http://www.themeforest.net/?ref=spykawg', 	'images/2.jpg', 	'10/04/2019',	'', 'caption4', 'moretext4'),
-	new banner('GraphicRiver', 			'http://www.graphicriver.net/?ref=spykawg', 'images/1.jpg', 	'30/04/2019',	'', 'caption5', 'moretext5'),
-	new banner('Dreamhost',				'http://www.dreamhost.com/r.cgi?259541',	'images/6.gif',		'30/04/2019',	'', 'caption6', 'moretext6')
+	new banner('AES Building',			'https://advance.msudenver.edu/makeagift', 			'images/aesbuilding.jpg', 	'30/04/2019',	'', 'Aerospace & Engineering Sciences', 'MSU Denver is embarking on its most ambitious undertaking yet -- to construct an Aerospace Engineering Sciences building with plans to educate and train a globally competitive aviation and advanced manufacturing workforce for the state of Colorado.'),
+	new banner('Hospitality Learning Center',	'https://advance.msudenver.edu/makeagift', 		'images/hlc.jpg',		'10/04/2019',	'', 'Hospitality Learning Center', 'Our newly created Hotel and Hospitality Learning Center offers a unique, experiential education thanks to an on-campus Spring Hill Suites, a full-service, 150-room hotel with conference and restaurant amenities.'),
+	new banner('Omar Hurricane', 				'https://www.msudenver.edu/magazine/storyarchive/fall-2015/a-perfect-storm.shtml', 	'images/omar_hurricane.jpg',		'30/04/2019',	'', 'A Perfect Storm', 'Alumnus Omar Hurricane is using technology and a laser-sharp focus to uncover new energy sources.'),
+	new banner('Graduate', 			'https://advance.msudenver.edu/transform', 	'images/scholarship.jpg', 	'10/04/2019',	'', 'Scholarship News', 'The Transform Tomorrow scholarship campaign is a $6 million effort to increase scholarships for recruitment, retention, and graduation of MSU Denver students.'),
+	new banner('Fay Olsgard', 			'https://www.msudenver.edu/magazine/storyarchive/fall-2015/the-skull-without-a-face.shtml', 'images/skulls.jpg', 	'30/04/2019',	'', 'The Skull Without A Face', 'Student Fay Olsgard is atthe center of the formindable MSU Denver network that is helping Costa Ricans to look in the mirror'),
+	new banner('Regency Complex',				'http://www.dreamhost.com/r.cgi?259541',	'images/softball.jpg',		'30/04/2019',	'', 'The Regency Athletic Complex at MSU Denver', 'MSU Denver is transforming a blighted plot in Denver&rsquo;s inner city into the Regency Athletic Complex, providing outstanding recreational opportunities to MSU Denver students and to the local community. ')
 ]
 
 //         				There is no need to edit below here
@@ -84,7 +85,9 @@ function banner(a,b,c,d,e,y,z){
   this.url=b;
   this.image=c;
   this.date=d;
+	// I ADDED THIS
 	this.header=y;
+	// I ADDED THIS
 	this.capt=z;
   this.active=1;
   this.oid=0;
@@ -124,8 +127,10 @@ function display_banners(a){
   }
   var d=Math.floor(Math.random()*b.length);
   var e=b[d];
-  var f=(settings.force_size==1)?' width="'+settings.img_width+'" height="'+settings.img_height+'"':'';
-  var g='<a href="'+e.url+'" title="'+e.name+'" target="'+settings.window+'"><img border="0" src="'+e.image+'"'+f+' alt="'+e.name+'" /><br/><span>'+e.header+'</span><br/><span>'+e.capt+'</span></a>';
+// ADDED % in the following line
+  var f=(settings.force_size==1)?' width="'+settings.img_width+'%" height="'+settings.img_height+'%"':'';
+	// ADDED I modified the below line to include the ability to have a heading and caption for each image
+  var g='<a href="'+e.url+'" title="'+e.name+'" target="'+settings.window+'" style="text-decoration:none !important;"><img border="0" src="'+e.image+'"'+f+' alt="'+e.name+'" /><br/><h3>'+e.header+'</h3><br/><span>'+e.capt+'</span></a>';
   var h=new Date();
   var j=e.date;
   j=j.split('/',3);
