@@ -65,14 +65,100 @@ var settings = {
 // to make sure a banner is always rotating, just set the date far into the future, i.e. year 3000
 
 var banners = [
-	new banner('AwesomeStyles',			'http://www.awesomestyles.com', 			'images/4.jpg', 	'30/04/2019',	''),
-	new banner('Just Free Templates',	'http://www.justfreetemplates.com', 		'images/5.jpg',		'10/04/2019',	''),
-	new banner('Flashden', 				'http://www.flashden.net/?ref=spykawg', 	'images/3.jpg',		'30/04/2019',	''),
-	new banner('ThemeForest', 			'http://www.themeforest.net/?ref=spykawg', 	'images/2.jpg', 	'10/04/2019',	''),
-	new banner('GraphicRiver', 			'http://www.graphicriver.net/?ref=spykawg', 'images/1.jpg', 	'30/04/2019',	''),
-	new banner('Dreamhost',				'http://www.dreamhost.com/r.cgi?259541',	'images/6.gif',		'30/04/2019',	'')
+	new banner('AwesomeStyles',			'http://www.awesomestyles.com', 			'images/4.jpg', 	'30/04/2019',	'', 'caption1', 'moretext1'),
+	new banner('Just Free Templates',	'http://www.justfreetemplates.com', 		'images/5.jpg',		'10/04/2019',	'', 'caption2', 'moretext2'),
+	new banner('Flashden', 				'http://www.flashden.net/?ref=spykawg', 	'images/3.jpg',		'30/04/2019',	'', 'caption3', 'moretext3'),
+	new banner('ThemeForest', 			'http://www.themeforest.net/?ref=spykawg', 	'images/2.jpg', 	'10/04/2019',	'', 'caption4', 'moretext4'),
+	new banner('GraphicRiver', 			'http://www.graphicriver.net/?ref=spykawg', 'images/1.jpg', 	'30/04/2019',	'', 'caption5', 'moretext5'),
+	new banner('Dreamhost',				'http://www.dreamhost.com/r.cgi?259541',	'images/6.gif',		'30/04/2019',	'', 'caption6', 'moretext6')
 ]
 
 //         				There is no need to edit below here
 ///////////////////////////////////////////////////////////////////////////////////
-var used=0;var location_counter=0;var refresh_counter=1;var map=new Array();function banner(a,b,c,d,e){this.name=a;this.url=b;this.image=c;this.date=d;this.active=1;this.oid=0;if(e!=''){this.loc=e}else{this.loc=settings.default_ad_loc}}function show_banners(a){location_counter=location_counter+1;if(a!=''&&a!=undefined){map[location_counter]=a}else{map[location_counter]=settings.default_ad_loc}var b='<div id="'+settings.location_prefix+location_counter+'" class="'+settings.location_class+'"></div>';document.write(b);display_banners(location_counter)}function display_banners(a){var b=new Array();if(a==''||!a||a<0){return}var c=banners.length;if((c==used)&&settings.duplicate_banners==0){return}for(i=0;i<(banners.length);i++){banners[i].oid=i;if((banners[i].loc==map[a])&&(banners[i].active==1)){b.push(banners[i])}}var d=Math.floor(Math.random()*b.length);var e=b[d];var f=(settings.force_size==1)?' width="'+settings.img_width+'" height="'+settings.img_height+'"':'';var g='<a href="'+e.url+'" title="'+e.name+'" target="'+settings.window+'"><img border="0" src="'+e.image+'"'+f+' alt="'+e.name+'" /></a>';var h=new Date();var j=e.date;j=j.split('/',3);var k=new Date();k.setFullYear(parseInt(j[2]),parseInt(j[1])-1,parseInt(j[0]));if((h<k)&&e.active==1){var l=document.getElementById(settings.location_prefix+a);if(l==null){alert('spyka Webmaster banner rotator\nError: adLocation doesn\'t exist!')}else{l.innerHTML=g;if(settings.duplicate_banners==0){banners[e.oid].active=0;used++}return}}else{display_banners(a)}return}function refresh_banners(){if((refresh_counter==settings.refresh_max)||settings.refresh_time<1){clearInterval(banner_refresh)}used=0;for(j=0;j<(banners.length);j++){banners[j].active=1}for(j=1;j<(location_counter+1);j++){display_banners(j)}refresh_counter++}var banner_refresh=window.setInterval(refresh_banners,settings.refresh_time);
+var used=0;
+var location_counter=0;
+var refresh_counter=1;
+var map=new Array();
+function banner(a,b,c,d,e,y,z){
+  this.name=a;
+  this.url=b;
+  this.image=c;
+  this.date=d;
+	this.header=y;
+	this.capt=z;
+  this.active=1;
+  this.oid=0;
+  if(e!=''){
+    this.loc=e
+  }
+  else{
+    this.loc=settings.default_ad_loc
+  }
+}
+function show_banners(a){
+  location_counter=location_counter+1;
+  if(a!=''&&a!=undefined){
+    map[location_counter]=a
+  }
+  else{
+    map[location_counter]=settings.default_ad_loc
+  }
+  var b='<div id="'+settings.location_prefix+location_counter+'" class="'+settings.location_class+'"></div>';
+  document.write(b);
+  display_banners(location_counter)
+}
+function display_banners(a){
+  var b=new Array();
+  if(a==''||!a||a<0){
+    return
+  }
+  var c=banners.length;
+  if((c==used)&&settings.duplicate_banners==0){
+    return
+  }
+  for(i=0;i<(banners.length);i++){
+    banners[i].oid=i;
+    if((banners[i].loc==map[a])&&(banners[i].active==1)){
+      b.push(banners[i])
+    }
+  }
+  var d=Math.floor(Math.random()*b.length);
+  var e=b[d];
+  var f=(settings.force_size==1)?' width="'+settings.img_width+'" height="'+settings.img_height+'"':'';
+  var g='<a href="'+e.url+'" title="'+e.name+'" target="'+settings.window+'"><img border="0" src="'+e.image+'"'+f+' alt="'+e.name+'" /><br/><span>'+e.header+'</span><br/><span>'+e.capt+'</span></a>';
+  var h=new Date();
+  var j=e.date;
+  j=j.split('/',3);
+  var k=new Date();
+  k.setFullYear(parseInt(j[2]),parseInt(j[1])-1,parseInt(j[0]));
+  if((h<k)&&e.active==1){
+    var l=document.getElementById(settings.location_prefix+a);
+    if(l==null){
+      alert('Oops this doesn\'t exist!')
+    }
+    else{
+      l.innerHTML=g;
+      if(settings.duplicate_banners==0){
+      banners[e.oid].active=0;used++
+      }
+    return
+    }
+  }
+  else{
+    display_banners(a)
+  }
+  return
+}
+function refresh_banners(){
+  if((refresh_counter==settings.refresh_max)||settings.refresh_time<1){
+    clearInterval(banner_refresh)
+  }
+  used=0;
+  for(j=0;j<(banners.length);j++){
+    banners[j].active=1
+  }
+  for(j=1;j<(location_counter+1);j++){
+      display_banners(j)
+    }refresh_counter++
+  }
+  var banner_refresh=window.setInterval(refresh_banners,settings.refresh_time);

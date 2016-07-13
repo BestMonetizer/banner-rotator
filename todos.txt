@@ -13,8 +13,10 @@ download of files to create rotating banners on site. content can appear anywher
 http://www.htmlbasix.com/banner.shtml
 automatically generates code for rotating banners. if multiple banners on same page there is a possibility they will appear in duplicate at any given reload.
 
-Questions:
+QUESTIONS AND NOTES:
 
 Do we want the content to change only on page re-load, or at a timed interval?
 
 Do we want to assign a fixed location for a content piece to appear (Item X can appear only in box on far left, Item Y can appear only in box in middle, etc.) or do we want content to appear anywhere (Item X can appear in any box -- the far left, the middle, or the right)?
+
+This script (http://www.spyka.net/scripts/javascript/simple-banner-rotator) appears to have the desired functionality. However, must research how to include content more than just a jpg or gif image (i.e. content must include caption and CSS styling such as borders, font-size, font-color, etc.)
