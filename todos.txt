@@ -7,6 +7,7 @@ content item randomly chosen and displayed at fixed, timed interval
 http://cssglobe.com/simple-way-to-random-display-or-rotate-content-using/
 content item randomly chosen and displayed on reload
 
+*** BEST ONE ***
 http://www.spyka.net/scripts/javascript/simple-banner-rotator
 download of files to create rotating banners on site. content can appear anywhere on page and won't appear in duplicate at any given time anywhere on the page.
 
@@ -18,5 +19,3 @@ QUESTIONS AND NOTES:
 Do we want the content to change only on page re-load, or at a timed interval?
 
 Do we want to assign a fixed location for a content piece to appear (Item X can appear only in box on far left, Item Y can appear only in box in middle, etc.) or do we want content to appear anywhere (Item X can appear in any box -- the far left, the middle, or the right)?
-
-This script (http://www.spyka.net/scripts/javascript/simple-banner-rotator) appears to have the desired functionality. However, must research how to include content more than just a jpg or gif image (i.e. content must include caption and CSS styling such as borders, font-size, font-color, etc.)
