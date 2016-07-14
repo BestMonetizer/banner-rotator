@@ -38,7 +38,7 @@ var settings = {
 	'img_width':			100,			//	width to resize all banners to, only takes effect if above is 1
 //	'img_height':			100, 			// 	height to resize all banners to, only takes effect if above is 1
 
-	'refresh_time':			5000,			//	the seconds between refreshs of the banners - use 0 to disable
+	'refresh_time':			0,			//	the seconds between refreshs of the banners - use 0 to disable ORIGINALLY WAS 5000
 	'refresh_max':			100,				//	maximum number of refreshs on each page load
 
 	'duplicate_banners':	0,				//	keep as 0 to make sure the same banner won't show on the same page. will only take effect
@@ -71,7 +71,10 @@ var banners = [
 	new banner('Omar Hurricane', 				'https://www.msudenver.edu/magazine/storyarchive/fall-2015/a-perfect-storm.shtml', 	'images/omar_hurricane.jpg',		'30/04/2019',	'', 'A Perfect Storm', 'Alumnus Omar Hurricane is using technology and a laser-sharp focus to uncover new energy sources.'),
 	new banner('Graduate', 			'https://advance.msudenver.edu/transform', 	'images/scholarship.jpg', 	'10/04/2019',	'', 'Scholarship News', 'The Transform Tomorrow scholarship campaign is a $6 million effort to increase scholarships for recruitment, retention, and graduation of MSU Denver students.'),
 	new banner('Fay Olsgard', 			'https://www.msudenver.edu/magazine/storyarchive/fall-2015/the-skull-without-a-face.shtml', 'images/skulls.jpg', 	'30/04/2019',	'', 'The Skull Without A Face', 'Student Fay Olsgard is atthe center of the formindable MSU Denver network that is helping Costa Ricans to look in the mirror'),
-	new banner('Regency Complex',				'http://www.dreamhost.com/r.cgi?259541',	'images/softball.jpg',		'30/04/2019',	'', 'The Regency Athletic Complex at MSU Denver', 'MSU Denver is transforming a blighted plot in Denver&rsquo;s inner city into the Regency Athletic Complex, providing outstanding recreational opportunities to MSU Denver students and to the local community. ')
+	new banner('Regency Complex',				'http://www.dreamhost.com/r.cgi?259541',	'images/softball.jpg',		'30/04/2019',	'', 'The Regency Athletic Complex at MSU Denver', 'MSU Denver is transforming a blighted plot in Denver&rsquo;s inner city into the Regency Athletic Complex, providing outstanding recreational opportunities to MSU Denver students and to the local community. '),
+	new banner('Cristian Solano', 'https://www.msudenver.edu/magazine/unlocking-success.shtml?utm_source=uhomepage&utm_medium=carousel&utm_content=solanocordova&utm_campaign=uhomepagelinks', 'images/cristian-solano.jpg', '30/04/2019', 'top', 'Unlocking Success', 'At MSU Denver, Cristian Solano-Cordova found an open door and a path to opportunity'),
+	new banner('Don Byron', 'http://www.msudenver.edu/magazine/storyarchive/spring-2016/music-man.shtml?utm_source=uhomepage&utm_medium=carousel&utm_content=donbyron&utm_campaign=uhomepagelinks', 'images/byron.jpg', '30/04/2019', 'top', 'Learn from a Master', 'Jazz virtuioso Don Byron brings excellence to the bandstand and the classroom'),
+	new banner('Diversity at MSU Denver', 'http://www.msudenver.edu/spotlight/diversity/?utm_source=uhomepage&utm_medium=carousel&utm_content=diversitychampion&utm_campaign=uhomepagelinks', 'images/diversity2.jpg', '30/04/2019', 'top', 'Diversity Champion', 'MSU Denver is honored for an unyielding commitment to diversity and inclusion')
 ]
 
 //         				There is no need to edit below here
